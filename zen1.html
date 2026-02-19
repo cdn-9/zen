@@ -38,6 +38,7 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
+    display: none; /* Inicialmente ocultamos el iframe */
 }
 
 .overlay{
@@ -206,7 +207,7 @@ iframe {
 <div class="video-container">
 
 <!-- Reemplazamos el video con el iframe de Dodstream -->
-<iframe src="https://myvidplay.com/e/f4wf9syrs63g" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+<iframe id="videoIframe" src="https://myvidplay.com/e/f4wf9syrs63g" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
 
 <div class="overlay" id="overlay">
 <button class="unlock-btn" onclick="unlockVideo()">
@@ -315,14 +316,12 @@ iframe {
 
 <script>
 function unlockVideo(){
-    // Abrir el enlace del anuncio cuando se presiona el botón "Desbloquear Video"
-    window.open(
-        "https://www.effectivegatecpm.com/ni03qhk9?key=372231298eb5e4e4f6e95a9f10a6e95e", 
-        "_blank"
-    );
-
     // Ocultar la capa de sobrecarga y el botón
     document.getElementById("overlay").style.display = "none";
+    
+    // Mostrar el iframe del video
+    var iframe = document.getElementById("videoIframe");
+    iframe.style.display = "block";
 }
 
 function openAd() {
