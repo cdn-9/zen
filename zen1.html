@@ -60,6 +60,26 @@ iframe{
     cursor:pointer;
 }
 
+.play-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.play-button:hover {
+    background: rgba(0, 0, 0, 0.85);
+}
+
 .sidebar{
     flex:1;
     display: flex;
@@ -141,11 +161,16 @@ iframe{
 <div class="video-container">
     <iframe width="600" height="480" src="https://myvidplay.com/e/f4wf9syrs63g" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
 
-<div class="overlay" id="overlay">
-<button class="unlock-btn" onclick="unlockVideo()">
-🔓 Desbloquear Video
-</button>
-</div>
+    <!-- Botón de redirección sobre el video -->
+    <button class="play-button" onclick="redirectToAd()">
+        Haz clic aquí para desbloquear el video
+    </button>
+
+    <div class="overlay" id="overlay">
+        <button class="unlock-btn" onclick="unlockVideo()">
+            🔓 Desbloquear Video
+        </button>
+    </div>
 
 </div>
 
@@ -174,7 +199,7 @@ iframe{
 function unlockVideo(){
     // Abrir el enlace del anuncio cuando se presiona el botón "Desbloquear Video"
     window.open(
-        "https://www.effectivegatecpm.com/ni03qhk9?key=372231298eb5e4e4f6e95a9f10a6e95e", 
+        "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7", 
         "_blank"
     );
 
@@ -186,9 +211,14 @@ function unlockVideo(){
     video.style.display = "block";
 }
 
+function redirectToAd() {
+    // Redirigir al usuario al enlace de Adsterra
+    window.open("https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7", "_blank");
+}
+
 function openAd() {
     // Abrir el enlace del anuncio al hacer clic en el botón dorado de descarga
-    window.open("https://www.effectivegatecpm.com/ni03qhk9?key=372231298eb5e4e4f6e95a9f10a6e95e", "_blank");
+    window.open("https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7", "_blank");
 }
 </script>
 
