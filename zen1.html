@@ -67,56 +67,6 @@ iframe{
     gap: 15px;
 }
 
-.recommendation-box{
-    background:#1a1a1a;
-    padding:10px;
-    border-radius:10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.recommendation-box img{
-    width:100%;
-    height:90px; /* Tamaño más adecuado */
-    border-radius:8px;
-    margin-bottom:10px;
-    object-fit:cover;
-    cursor:pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.recommendation-box:hover img {
-    transform: scale(1.05); /* Efecto de zoom al pasar por encima */
-    box-shadow: 0px 4px 15px rgba(0,0,0,0.2); /* Sombra para hacerla más dinámica */
-}
-
-.recommendation-box a{
-    color:#e50914;
-    text-decoration:none;
-    font-weight:bold;
-    font-size:14px; /* Asegurando que el texto no sea tan grande */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limitar el texto a 2 líneas */
-    -webkit-box-orient: vertical;
-}
-
-.recommendations-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 600px;
-    overflow-y: auto;
-    margin-right: 20px;
-}
-
-.recommendation-box {
-    width: 180px; /* Ancho adecuado para las miniaturas */
-    height: auto;
-}
-
 .telegram{
     background: #0088cc; /* Color azul para el botón de Telegram */
     padding:15px;
@@ -160,19 +110,6 @@ iframe{
         width: 100%;
         max-height: 350px;
         overflow-y: scroll;
-    }
-
-    .recommendations-container {
-        flex-direction: row;
-        gap: 10px;
-        overflow-x: scroll;
-        max-height: 250px; /* Ajustamos la altura para que se vea bien en móvil */
-        padding-bottom: 10px; /* Espacio para evitar que las miniaturas se corten */
-    }
-
-    .recommendation-box {
-        width: 120px; /* Miniaturas más grandes en móvil */
-        height: auto;
     }
 
     .telegram-download, .telegram {
@@ -228,83 +165,7 @@ iframe{
 </div>
 
 <div class="sidebar">
-
-<!-- Contenedor para las recomendaciones de video (listado vertical) -->
-<div class="recommendations-container">
-    <!-- Recomendación de video 1 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m165.html" target="_blank">
-            <img src="https://ia902902.us.archive.org/16/items/gemini-generated-image-1n-2hc-41n-2hc-41n-2h/Gemini_Generated_Image_1n2hc41n2hc41n2h.png" alt="Miniatura 1">
-            <p>Ahora si tengo leña para la chimenea</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 2 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m164.html" target="_blank">
-            <img src="https://ia600107.us.archive.org/0/items/gemini-generated-image-3ohyki-3ohyki-3ohy/Gemini_Generated_Image_3ohyki3ohyki3ohy.png" alt="Miniatura 2">
-            <p>No pudo resistir el peso que cargaba</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 3 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m163.html" target="_blank">
-            <img src="https://ia600805.us.archive.org/6/items/gemini-generated-image-10jk-6410jk-6410jk/Gemini_Generated_Image_10jk6410jk6410jk.png" alt="Miniatura 3">
-            <p>Me gusta mucho grabarme solita</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 4 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m162.html" target="_blank">
-            <img src="https://ia601001.us.archive.org/10/items/gemini-generated-image-e-51zrie-51zrie-51z/Gemini_Generated_Image_e51zrie51zrie51z.png" alt="Miniatura 4">
-            <p>No se resistió y lo tuve que meter rápido</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 6 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m160.html" target="_blank">
-            <img src="https://ia600604.us.archive.org/10/items/gemini-generated-image-i-3sv-42i-3sv-42i-3sv/Gemini_Generated_Image_i3sv42i3sv42i3sv.png" alt="Miniatura 6">
-            <p>Perdón abuela, limpiaré este desastre</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 7 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m159.html" target="_blank">
-            <img src="https://ia600407.us.archive.org/24/items/gemini-generated-image-ymwn-52ymwn-52ymwn/Gemini_Generated_Image_ymwn52ymwn52ymwn.png" alt="Miniatura 7">
-            <p>Mira, ya me mojaste otra vez</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 8 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m158.html" target="_blank">
-            <img src="https://ia903105.us.archive.org/34/items/gemini-generated-image-wlsvpbwlsvpbwlsv/Gemini_Generated_Image_wlsvpbwlsvpbwlsv.png" alt="Miniatura 8">
-            <p>Se la crome toda a mi jefe</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 9 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m157.html" target="_blank">
-            <img src="https://ia600607.us.archive.org/35/items/gemini-generated-image-pe-2co-0pe-2co-0pe-2c/Gemini_Generated_Image_pe2co0pe2co0pe2c.png" alt="Miniatura 9">
-            <p>Gracias abuelo por este gran regalo</p>
-        </a>
-    </div>
-
-    <!-- Recomendación de video 10 -->
-    <div class="recommendation-box">
-        <a href="https://viralzone1.github.io/bud/m156.html" target="_blank">
-            <img src="https://ia601005.us.archive.org/28/items/gemini-generated-image-ifydvgifydvgifyd/Gemini_Generated_Image_ifydvgifydvgifyd.png" alt="Miniatura 10">
-            <p>Despierta sobrina, ya es hora</p>
-        </a>
-    </div>
-
-</div>
-
+    <!-- Ahora está vacío para mantenerlo limpio -->
 </div>
 
 </div>
