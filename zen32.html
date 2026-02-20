@@ -62,9 +62,9 @@
 
     // Función que se ejecuta cuando el video es clickeado
     document.getElementById("videoContainer").addEventListener("click", () => {
-      // Si el contador es menor a 2, se abrirá el anuncio
+      // Si el contador es menor a 2, se redirige a la misma página con el anuncio
       if (clickCount < 2) {
-        window.open("https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7", "_blank");
+        window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; // Redirige a la misma pestaña
         clickCount++; // Incrementa el contador de clics
       }
     });
