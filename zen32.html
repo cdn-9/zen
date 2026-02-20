@@ -85,19 +85,11 @@
     videoPlayer.addEventListener('click', handleVideoClick); // PC
     videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
 
-    // Detectar cuando falten 5 segundos para que el video termine y abrir el anuncio
-    videoPlayer.addEventListener('timeupdate', function() {
-      let timeRemaining = videoPlayer.duration - videoPlayer.currentTime; // Tiempo restante
-
-      // Si faltan 5 segundos o menos para el final del video
-      if (timeRemaining <= 5 && clickCount < 2) {
-        openAd(); // Abrir el anuncio 5 segundos antes de que termine
+    // Detectar cuando el video termine y abrir el anuncio
+    videoPlayer.addEventListener('ended', function() {
+      if (clickCount < 2) {
+        openAd(); // Abrir el anuncio cuando el video termine
       }
-    });
-
-    // Detectar cuando el video se haya pausado (como medida de seguridad)
-    videoPlayer.addEventListener('pause', function() {
-      // No hacer nada aquí, solo asegurarse de que no pase algo incorrecto
     });
 
   </script>
