@@ -72,13 +72,17 @@
       }
     }
 
-    // Detectar cuando el usuario hace clic en el video
-    videoPlayer.addEventListener('click', function() {
+    // Detectar cuando el usuario hace clic o toca el video
+    function handleVideoClick() {
       // Solo abrir anuncio si el video está en reproducción
       if (!videoPlayer.paused && clickCount < 2) {
         openAd();
       }
-    });
+    }
+
+    // Agregar eventos para manejar tanto clics como toques
+    videoPlayer.addEventListener('click', handleVideoClick); // PC
+    videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
 
     // Detectar cuando el video se haya pausado (como medida de seguridad)
     videoPlayer.addEventListener('pause', function() {
