@@ -66,7 +66,7 @@
 
   <div class="video-container">
     <!-- Incrustación del video usando un elemento video HTML5 -->
-    <video id="videoPlayer" src="https://vidcool2.org/videos/wicho.mp4" controls></video>
+    <video id="videoPlayer" src="https://vidcool2.org/videos/wicho2.mp4" controls></video>
   </div>
 
   <!-- Social Bar (barra flotante) -->
@@ -74,22 +74,16 @@
     <a href="https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7" target="_blank" style="color: white;">¡Haz clic aquí para una oferta especial!</a>
   </div>
 
-  <!-- Popunder Script -->
-  <script src="https://pl28757523.effectivegatecpm.com/cb/38/b1/cb38b1d6533842777d4d826e1add6179.js"></script>
-
-  <!-- Social Bar Script -->
-  <script src="https://pl28757525.effectivegatecpm.com/b5/58/0b/b5580bef0e1f7e01d9b766a80b747828.js"></script>
-
   <script>
     let clickCount = 0; // Contador para hacer seguimiento de los clics
 
     // Obtener el video HTML5
     const videoPlayer = document.getElementById('videoPlayer');
 
-    // Función para abrir el enlace de Adsterra (Popunder)
-    function openPopunder() {
+    // Función para abrir el Smartlink (al final del video)
+    function openSmartlink() {
       if (clickCount < 2) {
-        window.open('https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7', '_blank'); // Popunder
+        window.location.href = "https://pl28757525.effectivegatecpm.com/b5/58/0b/b5580bef0e1f7e01d9b766a80b747828.js"; // Smartlink
         clickCount++; // Incrementa el contador de clics
         localStorage.setItem('clickCount', clickCount); // Almacena el nuevo contador en localStorage
       }
@@ -99,7 +93,7 @@
     function handleVideoClick() {
       // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
       if (!videoPlayer.paused && clickCount < 2) {
-        openPopunder(); // Mostrar el anuncio solo si no se ha abierto 2 veces
+        openSmartlink(); // Mostrar el Smartlink solo si no se ha abierto 2 veces
       }
     }
 
@@ -107,9 +101,9 @@
     videoPlayer.addEventListener('click', handleVideoClick); // PC
     videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
 
-    // Detectar cuando el video termine y abrir el anuncio (Popunder)
+    // Detectar cuando el video termine y abrir el Smartlink
     videoPlayer.addEventListener('ended', function() {
-      openPopunder(); // Abrir el Popunder cuando el video termine
+      openSmartlink(); // Abrir el Smartlink cuando el video termine
     });
 
   </script>
