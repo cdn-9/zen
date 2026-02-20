@@ -87,9 +87,8 @@
 
     // Detectar cuando el video termine y abrir el anuncio
     videoPlayer.addEventListener('ended', function() {
-      if (clickCount < 2) {
-        openAd(); // Abrir el anuncio cuando el video termine
-      }
+      console.log("El video ha terminado.");
+      openAd(); // Abrir el anuncio cuando el video termine
     });
 
   </script>
