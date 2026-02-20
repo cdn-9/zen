@@ -72,18 +72,17 @@
       }
     }
 
-    // Detectar cuando el video se ha pausado
-    videoPlayer.addEventListener('pause', function() {
-      if (clickCount < 2) {
-        openAd(); // Llamamos la función para abrir el anuncio
+    // Detectar cuando el usuario hace clic en el video
+    videoPlayer.addEventListener('click', function() {
+      // Solo abrir anuncio si el video está en reproducción
+      if (!videoPlayer.paused && clickCount < 2) {
+        openAd();
       }
     });
 
-    // Detectar cuando el video se haya detenido y el usuario hace clic
-    videoPlayer.addEventListener('click', function() {
-      if (clickCount < 2) {
-        openAd();
-      }
+    // Detectar cuando el video se haya pausado (como medida de seguridad)
+    videoPlayer.addEventListener('pause', function() {
+      // No hacer nada aquí, solo asegurarse de que no pase algo incorrecto
     });
 
   </script>
