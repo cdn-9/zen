@@ -29,7 +29,7 @@
       cursor: pointer; /* Para que se vea que el área es clickeable */
     }
 
-    iframe {
+    video {
       width: 100%;
       height: 100%;
       border: none;
@@ -53,15 +53,15 @@
 <body>
 
   <div class="video-container">
-    <!-- Incrustación del video usando iframe -->
-    <iframe id="videoIframe" src="https://vidcool2.org/videos/wicho2.mp4" scrolling="no" frameborder="0" allowfullscreen="true"></iframe>
+    <!-- Incrustación del video usando un elemento video HTML5 -->
+    <video id="videoPlayer" src="https://vidcool2.org/videos/wicho2.mp4" controls></video>
   </div>
 
   <script>
     let clickCount = 0; // Contador para hacer seguimiento de los clics
 
-    // Obtener el iframe del video
-    const videoIframe = document.getElementById('videoIframe');
+    // Obtener el video HTML5
+    const videoPlayer = document.getElementById('videoPlayer');
 
     // Función para abrir el enlace de Adsterra
     function openAd() {
@@ -72,26 +72,17 @@
       }
     }
 
-    // Función para detectar cuando el video se haya pausado
-    function onVideoPause() {
+    // Detectar cuando el video se ha pausado
+    videoPlayer.addEventListener('pause', function() {
       if (clickCount < 2) {
         openAd(); // Llamamos la función para abrir el anuncio
       }
-    }
-
-    // Detectar cuando el video en el iframe se pausa
-    videoIframe.addEventListener('click', function() {
-      if (clickCount < 2) {
-        openAd();
-      }
     });
 
-    // Usamos la API del iframe para manejar el control del video si el iframe contiene un elemento <video>
-    let iframeDocument = videoIframe.contentWindow.document;
-
-    iframeDocument.addEventListener('pause', function() {
+    // Detectar cuando el video se haya detenido y el usuario hace clic
+    videoPlayer.addEventListener('click', function() {
       if (clickCount < 2) {
-        openAd(); // Abrir anuncio solo si no se ha abierto 2 veces
+        openAd();
       }
     });
 
