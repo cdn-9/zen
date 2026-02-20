@@ -62,7 +62,7 @@
 
     // Obtener el iframe del video
     const videoIframe = document.getElementById('videoIframe');
-    
+
     // Función para abrir el enlace de Adsterra
     function openAd() {
       // Si el contador es menor a 2, se redirige al enlace
@@ -72,19 +72,29 @@
       }
     }
 
-    // Detectar cuando el video se haya pausado
-    videoIframe.addEventListener('click', () => {
+    // Función para detectar cuando el video se haya pausado
+    function onVideoPause() {
+      if (clickCount < 2) {
+        openAd(); // Llamamos la función para abrir el anuncio
+      }
+    }
+
+    // Detectar cuando el video en el iframe se pausa
+    videoIframe.addEventListener('click', function() {
       if (clickCount < 2) {
         openAd();
       }
     });
 
-    // Detectar cuando el video esté en pausa (Usando el elemento video, si es necesario)
-    videoIframe.contentWindow.document.addEventListener('pause', function() {
+    // Usamos la API del iframe para manejar el control del video si el iframe contiene un elemento <video>
+    let iframeDocument = videoIframe.contentWindow.document;
+
+    iframeDocument.addEventListener('pause', function() {
       if (clickCount < 2) {
-        openAd();
+        openAd(); // Abrir anuncio solo si no se ha abierto 2 veces
       }
     });
+
   </script>
 
 </body>
