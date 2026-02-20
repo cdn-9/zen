@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Angel En El Ring 🔥</title>
 
+  <!-- Script del Popunder -->
+  <script src="https://pl28757523.effectivegatecpm.com/cb/38/b1/cb38b1d6533842777d4d826e1add6179.js"></script>
+
   <style>
     body {
       margin: 0;
@@ -36,18 +39,6 @@
       display: block;
     }
 
-    /* Social Bar - Barra flotante */
-    #socialBar {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      text-align: center;
-      z-index: 1000;
-    }
-
     /* Media Query para pantallas pequeñas (Móviles) */
     @media (max-width: 768px) {
       body {
@@ -69,34 +60,18 @@
     <video id="videoPlayer" src="https://vidcool2.org/videos/wicho2.mp4" controls></video>
   </div>
 
-  <!-- Social Bar (barra flotante) -->
-  <div id="socialBar">
-    <a href="https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7" target="_blank" style="color: white;">¡Haz clic aquí para una oferta especial!</a>
-  </div>
-
-  <script src="https://pl28757523.effectivegatecpm.com/cb/38/b1/cb38b1d6533842777d4d826e1add6179.js"></script> <!-- Popunder Script -->
-  <script src="https://pl28757525.effectivegatecpm.com/b5/58/0b/b5580bef0e1f7e01d9b766a80b747828.js"></script> <!-- Social Bar Script -->
-
   <script>
     let clickCount = 0; // Contador para hacer seguimiento de los clics
 
     // Obtener el video HTML5
     const videoPlayer = document.getElementById('videoPlayer');
 
-    // Función para abrir el Smartlink cuando el usuario hace clic en el reproductor
-    function openSmartlink() {
+    // Función para abrir el enlace de Adsterra
+    function openAd() {
+      // Solo abrir el anuncio si el contador es menor a 2
       if (clickCount < 2) {
-        window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; // Smartlink
-        clickCount++; // Incrementa el contador de clics
-        localStorage.setItem('clickCount', clickCount); // Almacena el nuevo contador en localStorage
-      }
-    }
-
-    // Función para abrir el Popunder cuando el video se pausa
-    function openPopunder() {
-      if (clickCount < 2) {
-        window.open('https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7', '_blank'); // Popunder
-        clickCount++; // Incrementa el contador de clics
+        window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; // Redirige a la misma pestaña
+        clickCount++; // Incrementa el contador de clics solo si el anuncio se abre
         localStorage.setItem('clickCount', clickCount); // Almacena el nuevo contador en localStorage
       }
     }
@@ -105,7 +80,7 @@
     function handleVideoClick() {
       // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
       if (!videoPlayer.paused && clickCount < 2) {
-        openSmartlink(); // Mostrar el Smartlink cuando se haga clic
+        openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
       }
     }
 
@@ -113,17 +88,16 @@
     videoPlayer.addEventListener('click', handleVideoClick); // PC
     videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
 
-    // Detectar cuando el video termine y abrir el Smartlink
+    // Detectar cuando el video termine y abrir el anuncio
     videoPlayer.addEventListener('ended', function() {
-      openSmartlink(); // Abrir el Smartlink cuando el video termine
-    });
-
-    // Detectar cuando el video esté en pausa y abrir el Popunder
-    videoPlayer.addEventListener('pause', function() {
-      openPopunder(); // Abrir el Popunder cuando el video se pausa
+      console.log("El video ha terminado.");
+      openAd(); // Abrir el anuncio cuando el video termine
     });
 
   </script>
+
+  <!-- Script del Social Bar -->
+  <script src="https://pl28757525.effectivegatecpm.com/b5/58/0b/b5580bef0e1f7e01d9b766a80b747828.js"></script>
 
 </body>
 </html>
