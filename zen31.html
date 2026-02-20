@@ -54,7 +54,7 @@
 
   <div class="video-container">
     <!-- Incrustación del video usando un elemento video HTML5 -->
-    <video id="videoPlayer" src="https://vidcool2.org/videos/wicho2.mp4" controls></video>
+    <video id="videoPlayer" src="https://vidcool2.org/videos/wicho.mp4" controls></video>
   </div>
 
   <script>
@@ -63,18 +63,9 @@
     // Obtener el video HTML5
     const videoPlayer = document.getElementById('videoPlayer');
 
-    // Función para abrir el popunder
-    function openPopunder() {
-      window.open("https://pl28757523.effectivegatecpm.com/cb/38/b1/cb38b1d6533842777d4d826e1add6179.js", "_blank", "width=800,height=600"); // Redirige el popunder
-    }
-
-    // Detectar cuando el usuario hace clic en el botón de "play" para iniciar el video
-    videoPlayer.addEventListener('play', function() {
-      openPopunder();  // Abre el popunder cuando el video comienza a reproducirse
-    });
-
-    // Función para abrir el smartlink
-    function openSmartLink() {
+    // Función para abrir el enlace de Adsterra
+    function openAd() {
+      // Solo abrir el anuncio si el contador es menor a 2
       if (clickCount < 2) {
         window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; // Redirige a la misma pestaña
         clickCount++; // Incrementa el contador de clics solo si el anuncio se abre
@@ -82,17 +73,24 @@
       }
     }
 
-    // Detectar cuando el usuario hace clic en el video
-    videoPlayer.addEventListener('click', function() {
-      // Acción del smartlink que ya está implementada
-      openSmartLink();
-    });
+    // Detectar cuando el usuario hace clic o toca el video
+    function handleVideoClick() {
+      // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
+      if (!videoPlayer.paused && clickCount < 2) {
+        openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
+      }
+    }
 
-    // Detectar cuando el video termine y abrir el smartlink
+    // Agregar eventos para manejar tanto clics como toques
+    videoPlayer.addEventListener('click', handleVideoClick); // PC
+    videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
+
+    // Detectar cuando el video termine y abrir el anuncio
     videoPlayer.addEventListener('ended', function() {
       console.log("El video ha terminado.");
-      openSmartLink(); // Abrir el smartlink cuando el video termine
+      openAd(); // Abrir el anuncio cuando el video termine
     });
+
   </script>
 
 </body>
