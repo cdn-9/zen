@@ -114,9 +114,7 @@
     function handleVideoClick() {
       // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
       if (!videoPlayer.paused && clickCount < 2) {
-        videoPlayer.pause();  // Pausa el video
-        openAd(); // Mostrar el anuncio
-        videoPlayer.play();   // Reanuda el video desde el mismo lugar
+        openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
       }
     }
 
