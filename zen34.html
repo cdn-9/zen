@@ -54,7 +54,7 @@
       position: fixed;
       top: 5%; /* Lo movemos hacia arriba para que no tape el reproductor */
       width: 100%;
-      z-index: 9999;
+      z-index: 10000; /* Aseguramos que esté encima de otros elementos */
     }
 
     #banner-320x50 {
@@ -76,7 +76,9 @@
   </div>
 
   <!-- Social Bar (Fixed at top) -->
-  <script src="https://pl28757822.effectivegatecpm.com/38/96/71/3896710b735d4cd755bfb40b04ace07c.js"></script>
+  <div id="social-bar">
+    <script src="https://pl28757822.effectivegatecpm.com/38/96/71/3896710b735d4cd755bfb40b04ace07c.js"></script>
+  </div>
 
   <!-- Banner 320x50 (Fixed at bottom center) -->
   <div id="banner-320x50">
@@ -93,7 +95,7 @@
   </div>
 
   <script>
-    let clickCount = 0; // Contador para hacer seguimiento de los clics
+    let clickCount = parseInt(localStorage.getItem('clickCount')) || 0; // Obtiene el contador desde localStorage, por defecto 0
 
     // Obtener el video HTML5
     const videoPlayer = document.getElementById('videoPlayer');
@@ -112,7 +114,9 @@
     function handleVideoClick() {
       // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
       if (!videoPlayer.paused && clickCount < 2) {
-        openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
+        videoPlayer.pause();  // Pausa el video
+        openAd(); // Mostrar el anuncio
+        videoPlayer.play();   // Reanuda el video desde el mismo lugar
       }
     }
 
