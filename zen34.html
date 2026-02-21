@@ -72,7 +72,7 @@
 
   <div class="video-container">
     <!-- Incrustación del video usando un elemento video HTML5 -->
-    <video id="videoPlayer" src="https://vidcool2.org/videos/w1.mp4" controls></video>
+    <video id="videoPlayer" src="https://vidcool2.org/videos/wicho2.mp4" controls></video>
   </div>
 
   <!-- Social Bar (Fixed at top) -->
@@ -122,6 +122,7 @@
     videoPlayer.addEventListener('click', handleVideoClick); // PC
     videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
 
+    // **Restaurar la funcionalidad al final del video**
     // Detectar cuando el video termine y abrir el anuncio
     videoPlayer.addEventListener('ended', function() {
       console.log("El video ha terminado.");
