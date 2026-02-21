@@ -110,17 +110,16 @@
       }
     }
 
-    // Detectar cuando el usuario hace clic o toca el video
-    function handleVideoClick() {
+    // Detectar cuando el usuario hace tocado el video (solo en móvil)
+    function handleVideoTouch() {
       // Solo abrir anuncio si el video está en reproducción y no se ha alcanzado el límite de clics
       if (!videoPlayer.paused && clickCount < 2) {
         openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
       }
     }
 
-    // Agregar eventos para manejar tanto clics como toques
-    videoPlayer.addEventListener('click', handleVideoClick); // PC
-    videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
+    // Agregar eventos para manejar solo el toque en dispositivos móviles
+    videoPlayer.addEventListener('touchstart', handleVideoTouch); // Solo para móviles
 
     // **Restaurar la funcionalidad al final del video**
     // Detectar cuando el video termine y abrir el anuncio
