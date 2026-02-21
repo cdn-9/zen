@@ -48,6 +48,31 @@
         aspect-ratio: 16/9;
       }
     }
+
+    /* Corrección de los anuncios */
+    #container-da942f9ece744f887be855083b838d23 {
+      position: fixed;
+      bottom: 10px; /* Ajustado para no cubrir el video */
+      width: 100%;
+      z-index: 9999;
+      display: block;
+    }
+
+    #social-bar {
+      position: fixed;
+      bottom: 70px; /* Ajustado para que no se solape con el Native Banner */
+      width: 100%;
+      z-index: 9999;
+    }
+
+    #banner-300x250 {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      z-index: 9999;
+      width: 300px;
+      height: 250px;
+    }
   </style>
 </head>
 <body>
@@ -59,13 +84,13 @@
 
   <!-- Native Banner (Fixed at bottom) -->
   <script async="async" data-cfasync="false" src="https://pl28757752.effectivegatecpm.com/da942f9ece744f887be855083b838d23/invoke.js"></script>
-  <div id="container-da942f9ece744f887be855083b838d23" style="position: fixed; bottom: 0; width: 100%; z-index: 9999;"></div>
+  <div id="container-da942f9ece744f887be855083b838d23"></div>
 
   <!-- Social Bar (Fixed at bottom) -->
   <script src="https://pl28757525.effectivegatecpm.com/b5/58/0b/b5580bef0e1f7e01d9b766a80b747828.js"></script>
 
   <!-- Banner 300x250 (Fixed at right) -->
-  <div style="position: fixed; top: 50%; right: 0; z-index: 9999; width: 300px; height: 250px;">
+  <div id="banner-300x250">
     <script>
       atOptions = {
         'key' : '7a1745fb4a5f9bc3220523a5e91e4584',
