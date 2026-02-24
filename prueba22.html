@@ -116,6 +116,19 @@
       setTimeout(function() {
         adContainer.style.display = "none"; // Ocultar el anuncio
       }, 5000); // Tiempo para mostrar el anuncio (en ms)
+
+      // Agregar evento para que cuando el video termine en la nueva pestaña, se lance el nuevo anuncio
+      videoWindow.onload = function() {
+        const videoElement = videoWindow.document.querySelector("video");
+
+        if (videoElement) {
+          // Al terminar el video, mostrar otro anuncio de Adsterra en la misma pestaña del video
+          videoElement.addEventListener('ended', function() {
+            // Mostrar un nuevo anuncio en la ventana del video
+            videoWindow.location.href = "https://www.effectivegatecpm.com/ngzpt58f?key=5c70ad552b862af230af9bf451daf988";
+          });
+        }
+      };
     }
   </script>
 
