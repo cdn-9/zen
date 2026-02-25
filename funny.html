@@ -29,10 +29,45 @@
       cursor: pointer; /* Para que se vea que el área es clickeable */
     }
 
-    iframe {
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .ad-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      display: none; /* Inicialmente oculto */
+    }
+
+    .ad-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: black;
+    }
+
+    video {
       width: 100%;
       height: 100%;
       border: none;
+      display: block;
     }
 
     /* Media Query para pantallas pequeñas (Móviles) */
@@ -52,38 +87,36 @@
 <body>
 
   <div class="video-container">
-    <!-- Incrustación del video usando un iframe -->
-    <iframe id="videoPlayer" src="https://myvidplay.com/e/f2gvsqkybsra" frameborder="0" allowfullscreen></iframe>
+    <!-- Botón de play -->
+    <div class="play-button" onclick="playVideo()">►</div>
+  </div>
+
+  <!-- Contenedor para el anuncio -->
+  <div class="ad-container" id="adContainer">
+    <div class="ad-content">
+      <h2>¡Espera un momento!</h2>
+      <p>Se está preparando el video...</p>
+      <p>Te redirigiremos en breve.</p>
+    </div>
   </div>
 
   <script>
-    let clickCount = 0; // Contador para hacer seguimiento de los clics
+    function playVideo() {
+      // Mostrar el anuncio en la misma ventana
+      const adContainer = document.getElementById("adContainer");
+      adContainer.style.display = "flex"; // Mostrar anuncio
 
-    // Obtener el iframe HTML
-    const videoPlayer = document.getElementById('videoPlayer');
+      // Abrir el video en una nueva pestaña
+      const videoWindow = window.open("https://ia903102.us.archive.org/6/items/solita_202602/solita.mp4");
 
-    // Función para abrir el enlace de Adsterra
-    function openAd() {
-      // Solo abrir el anuncio si el contador es menor a 2
-      if (clickCount < 2) {
-        window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; // Redirige a la misma pestaña
-        clickCount++; // Incrementa el contador de clics solo si el anuncio se abre
-        localStorage.setItem('clickCount', clickCount); // Almacena el nuevo contador en localStorage
-      }
+      // Abrir el enlace de Adsterra en la misma ventana
+      window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; 
+
+      // Después de 5 segundos, ocultar el anuncio en la ventana actual
+      setTimeout(function() {
+        adContainer.style.display = "none"; // Ocultar el anuncio
+      }, 5000); // Tiempo para mostrar el anuncio (en ms)
     }
-
-    // Detectar cuando el usuario hace clic o toca el video
-    function handleVideoClick() {
-      // Solo abrir anuncio si el iframe está siendo clickeado y no se ha alcanzado el límite de clics
-      if (clickCount < 2) {
-        openAd(); // Mostrar el anuncio solo si no se ha abierto 2 veces
-      }
-    }
-
-    // Agregar eventos para manejar tanto clics como toques
-    videoPlayer.addEventListener('click', handleVideoClick); // PC
-    videoPlayer.addEventListener('touchstart', handleVideoClick); // Móviles
-
   </script>
 
 </body>
