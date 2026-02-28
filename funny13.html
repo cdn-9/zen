@@ -1,0 +1,123 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Angel En El Ring 🔥</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;  /* Centra el contenido horizontalmente */
+      align-items: center;      /* Centra el contenido verticalmente */
+      overflow: hidden;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 1200px;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer; /* Para que se vea que el área es clickeable */
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .ad-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      display: none; /* Inicialmente oculto */
+    }
+
+    .ad-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: black;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    /* Media Query para pantallas pequeñas (Móviles) */
+    @media (max-width: 768px) {
+      body {
+        height: 100vh;
+      }
+
+      .video-container {
+        width: 100%;
+        max-width: 100%;
+        aspect-ratio: 16/9;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <!-- Botón de play -->
+    <div class="play-button" onclick="playVideo()">►</div>
+  </div>
+
+  <!-- Contenedor para el anuncio -->
+  <div class="ad-container" id="adContainer">
+    <div class="ad-content">
+      <h2>¡Espera un momento!</h2>
+      <p>Se está preparando el video...</p>
+      <p>Te redirigiremos en breve.</p>
+    </div>
+  </div>
+
+  <script>
+    function playVideo() {
+      // Mostrar el anuncio en la misma ventana
+      const adContainer = document.getElementById("adContainer");
+      adContainer.style.display = "flex"; // Mostrar anuncio
+
+      // Abrir el video en una nueva pestaña
+      const videoWindow = window.open("https://ia600408.us.archive.org/27/items/emoo_20260228/emoo.mp4");
+
+      // Abrir el enlace de Adsterra en la misma ventana
+      window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; 
+
+      // Después de 5 segundos, ocultar el anuncio en la ventana actual
+      setTimeout(function() {
+        adContainer.style.display = "none"; // Ocultar el anuncio
+      }, 5000); // Tiempo para mostrar el anuncio (en ms)
+    }
+  </script>
+
+</body>
+</html>
