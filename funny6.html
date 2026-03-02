@@ -1,123 +1,171 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Angel En El Ring 🔥</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Video</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #000;
-      color: white;
-      height: 100vh;
-      display: flex;
-      justify-content: center;  /* Centra el contenido horizontalmente */
-      align-items: center;      /* Centra el contenido verticalmente */
-      overflow: hidden;
-    }
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  height: 100%;
+}
 
-    .video-container {
-      width: 100%;
-      max-width: 1200px;
-      aspect-ratio: 16/9;
-      background: #000;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer; /* Para que se vea que el área es clickeable */
-    }
+.container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .play-button {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(255, 255, 255, 0.7);
-      padding: 20px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 24px;
-    }
+video {
+  height: 100%;
+  max-width: 100%;
+  background: #000;
+}
 
-    .ad-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-      display: none; /* Inicialmente oculto */
-    }
+/* BOTÓN ROJO */
+#playBtn {
+  position: absolute;
+  padding: 16px 30px;
+  background: #e60000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+}
 
-    .ad-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      color: black;
-    }
+/* BOTÓN VERDE */
+#downloadBtn {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 22px;
+  cursor: pointer;
+  z-index: 9999;
+  transition: all .3s ease;
+}
 
-    video {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
+/* SÓLIDO: DESCARGAR VIDEO */
+.solid {
+  background: #00c853;
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0,200,83,.9);
+}
 
-    /* Media Query para pantallas pequeñas (Móviles) */
-    @media (max-width: 768px) {
-      body {
-        height: 100vh;
-      }
-
-      .video-container {
-        width: 100%;
-        max-width: 100%;
-        aspect-ratio: 16/9;
-      }
-    }
-  </style>
+/* TRANSPARENTE: los demás botones */
+.transparent {
+  background: rgba(0,0,0,.35);
+  color: #00ff7f;
+  border: 2px solid #00ff7f;
+  box-shadow: none;
+  text-shadow: 0 0 6px rgba(0,0,0,.8);
+}
+</style>
 </head>
+
 <body>
 
-  <div class="video-container">
-    <!-- Botón de play -->
-    <div class="play-button" onclick="playVideo()">►</div>
-  </div>
+<div class="container">
+  <video id="video" controls playsinline>
+    <source src="https://ia902801.us.archive.org/20/items/xvideos-la-novia-de-su-mejor-amigo-sabe-jugar-y-se-desnuda-para-el-sd/Xvideos_la_novia_de_su_mejor_amigo_sabe_jugar_y_se_desnuda_para_el_SD.mp4" type="video/mp4">
+  </video>
+  <button id="playBtn">VER VIDEO</button>
+</div>
 
-  <!-- Contenedor para el anuncio -->
-  <div class="ad-container" id="adContainer">
-    <div class="ad-content">
-      <h2>¡Espera un momento!</h2>
-      <p>Se está preparando el video...</p>
-      <p>Te redirigiremos en breve.</p>
-    </div>
-  </div>
+<div id="downloadBtn" class="solid">⬇ DESCARGAR VIDEO</div>
 
-  <script>
-    function playVideo() {
-      // Mostrar el anuncio en la misma ventana
-      const adContainer = document.getElementById("adContainer");
-      adContainer.style.display = "flex"; // Mostrar anuncio
+<script>
+const playBtn = document.getElementById('playBtn');
+const video = document.getElementById('video');
+const downloadBtn = document.getElementById('downloadBtn');
 
-      // Abrir el video en una nueva pestaña
-      const videoWindow = window.open("https://ia902801.us.archive.org/20/items/xvideos-la-novia-de-su-mejor-amigo-sabe-jugar-y-se-desnuda-para-el-sd/Xvideos_la_novia_de_su_mejor_amigo_sabe_jugar_y_se_desnuda_para_el_SD.mp4", "_blank");
+let step = 0;
+let countdown;
 
-      // Abrir el enlace de Adsterra en la misma ventana
-      window.location.href = "https://www.effectivegatecpm.com/w8v228zp?key=570479220812effc1637181d77a766c7"; 
+/* BOTÓN ROJO */
+playBtn.addEventListener('click', () => {
+  window.open(
+    'https://www.effectivegatecpm.com/ugzyiit22?key=5b61b3b2548945f0c24685155f1b8dfa',
+    '_blank'
+  );
 
-      // Después de 5 segundos, ocultar el anuncio en la ventana actual
-      setTimeout(function() {
-        adContainer.style.display = "none"; // Ocultar el anuncio
-      }, 5000); // Tiempo para mostrar el anuncio (en ms)
+  playBtn.style.display = 'none';
+  video.play();
+  downloadBtn.style.display = 'block';
+
+  setTimeout(() => {
+    if (step === 0) downloadBtn.classList.add('ghost');
+  }, 3000);
+});
+
+/* BOTÓN VERDE */
+downloadBtn.addEventListener('click', () => {
+
+  /* CLICK 1 */
+  if (step === 0) {
+    step = 1;
+    window.open('https://www.effectivegatecpm.com/ugzyiit22?key=5b61b3b2548945f0c24685155f1b8dfa', '_blank');
+    downloadBtn.textContent = '⏳ Preparando descarga…';
+    downloadBtn.classList.remove('solid');
+    downloadBtn.classList.add('transparent');
+
+    setTimeout(() => {
+      downloadBtn.textContent = '❌ Descarga fallida · Click Nuevaente';
+    }, 4000);
+  }
+
+  /* CLICK 2 */
+  else if (step === 1) {
+    step = 2;
+    window.open('https://www.effectivegatecpm.com/ugzyiit22?key=5b61b3b2548945f0c24685155f1b8dfa', '_blank');
+    startCountdown(25);
+  }
+
+  /* CLICK FINAL */
+  else if (step === 3) {
+    window.open('https://www.effectivegatecpm.com/ugzyiit22?key=5b61b3b2548945f0c24685155f1b8dfa', '_blank');
+    downloadBtn.textContent = '⏳ Procesando…';
+    downloadBtn.style.pointerEvents = 'none';
+  }
+});
+
+/* CONTADOR */
+function startCountdown(seconds) {
+  step = 2;
+  let remaining = seconds;
+
+  downloadBtn.textContent = `⏱ Enlace disponible en ${remaining}s`;
+
+  countdown = setInterval(() => {
+    remaining--;
+    downloadBtn.textContent = `⏱ Enlace disponible en ${remaining}s`;
+
+    if (remaining <= 0) {
+      clearInterval(countdown);
+      step = 3;
+      downloadBtn.textContent = '✅ Enlace listo · click aquí';
     }
-  </script>
+  }, 1000);
+}
+
+/* PAUSE → MONETAG */
+video.addEventListener('pause', () => {
+  window.open('https://www.effectivegatecpm.com/ugzyiit22?key=5b61b3b2548945f0c24685155f1b8dfa', '_blank');
+});
+</script>
 
 </body>
 </html>
